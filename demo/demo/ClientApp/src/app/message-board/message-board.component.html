@@ -1,0 +1,28 @@
+<h1>
+  Message-board works!
+</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Message</th>
+      <th>Comments</th>
+      <th>Like</th>
+      <th>Add Like</th>
+      <th>Add Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of MessageData">
+      <td>{{data.id}}</td>
+      <td>{{data.message}}</td>
+      <td>{{data.comments}}</td>
+      <td>{{data.count}}</td>
+      <td>
+        <button (click)="AddLike(data.id)" class="btn btn-primary">Like</button>
+      </td>
+      <td><button class="btn btn-primary">Add a Comment</button></td>
+    </tr>
+  </tbody>
+  </table>
