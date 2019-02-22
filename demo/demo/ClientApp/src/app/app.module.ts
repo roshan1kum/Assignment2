@@ -11,7 +11,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CommentsComponent } from './comments/comments.component';
 import { MessageBoardComponent } from './message-board/message-board.component';
 import { AddMessageComponent } from './add-message/add-message.component';
-import { MessageServiceService } from './message-service.service';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -30,15 +30,17 @@ import { MessageServiceService } from './message-service.service';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'message-board', component: MessageBoardComponent },
-      { path: 'add-message', component: AddMessageComponent }
+      { path: 'add-message', component: AddMessageComponent },
+      { path: 'comments', component: CommentsComponent}
     ])
   ],
-  providers: [MessageServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

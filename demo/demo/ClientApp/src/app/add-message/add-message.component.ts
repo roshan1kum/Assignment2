@@ -1,36 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { MessageServiceService } from '../message-service.service';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, Inject } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Http, Response } from '@angular/http';
+import { MessageDetail } from '../message-detail.model';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-add-message',
   templateUrl: './add-message.component.html',
   styleUrls: ['./add-message.component.css']
 })
-export class AddMessageComponent implements OnInit {
+export class AddMessageComponent {
+  url: string = "";
+  public messageText: any = {};
 
-  constructor(private service: MessageServiceService) { }
+  public value: MessageDetail;
 
-  ngOnInit() {
-   // this.resetForm();
+
+  constructor(private httpClient:HttpClient,public http: Http, private _router: Router) {
+    
   }
 
-
-  //resetForm(form?: NgForm): any {
-  //  if (form != null)
-  //    form.resetForm();
-  //  this.service.messageData = {
-  //    message:'',
-  //    Id: 0,
-  //    comments: '',
-  //    count: 0
-  //  }
-  //}
-
-  onSubmit(form: NgForm) {
-    this.service.postMessage(form.value).subscribe()
-     
-      
+  AddMessage():void {
+    this.httpClient.post("https://localhost:44386/api/Messages", this.messageText).subscribe(() => {
+      this._router.navigate(['/message-board'])
+    });
   }
-
 }
+///*"https://localhost:44386/api/Messages"*/

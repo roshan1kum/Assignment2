@@ -1,33 +1,23 @@
 <p>
-  add-message works!
+  Add-message works!
 </p>
 
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-</head>
-<body>
 
-  <div class="container">
-    <h2>Add A Post</h2>
-    <div class="panel-group">
-      <div class="panel panel-success">
-        <div class="panel-heading">Add New Post</div>
-        <div class="panel-body">
-          <form #form="ngForm" (submit)="onSubmit(form)">
-            <input type="hidden" name="Id" [value]="service.messageData.Id" />
-            <input type="hidden" asp-for="Message.Id" />
-            <div class="form-group">
-              <input name="message" #message="ngModel" [(ngModel)]="service.messageData.message" class="form-control" />
-            </div>
-            <button type="submit" class="btn btn-primary">Save</button>
-          </form>
-        </div>
+<div class="container">
+  <h2>Add A Post</h2>
+  <div class="panel-group">
+    <div class="panel panel-success">
+      <div class="panel-heading">Add New Post</div>
+      <div class="panel-body">
+        <form #form="ngForm">
+          <input type="hidden"/>
+          <div class="form-group">
+            
+            <input class="form-control" type="text" name="messageText" [(ngModel)]='messageText.message'/>
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="AddMessage()">Save</button>
+        </form>
       </div>
     </div>
-    </div>
-    </body>
+  </div>
+  </div>
