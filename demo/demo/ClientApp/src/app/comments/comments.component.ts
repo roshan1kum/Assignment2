@@ -14,7 +14,7 @@ export class CommentsComponent implements OnInit {
   }
 
   AddComments() {
-    this.router.navigate(['/message-board']);
+    //this.router.navigate(['/message-board']);
   }
 
 }
